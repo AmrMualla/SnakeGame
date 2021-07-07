@@ -18,7 +18,7 @@ class Snake:
 
     def add_part(self, position):
         snake_body = Turtle("square")
-        snake_body.color("white")
+        snake_body.color("green")
         snake_body.penup()
         snake_body.goto(position)
         self.parts.append(snake_body)
@@ -50,4 +50,9 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
-    
+    def reset(self):
+        for part in self.parts:
+            part.goto(1000, 1000)
+        self.parts.clear()
+        self.create_snake()
+        self.head = self.parts[0]
